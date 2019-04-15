@@ -63,10 +63,11 @@ public class ReportBugJFrame extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         convertedTextArea = new javax.swing.JTextArea();
 
-        setTitle("Fehler melden");
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("interfaces"); // NOI18N
+        setTitle(bundle.getString("title_report_error")); // NOI18N
         setMinimumSize(new java.awt.Dimension(270, 510));
 
-        reportButton.setText("Senden");
+        reportButton.setText(bundle.getString("button_send")); // NOI18N
         reportButton.setEnabled(false);
         reportButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,16 +84,16 @@ public class ReportBugJFrame extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(commentTextArea);
 
-        commentLabel.setText("Kommentar");
+        commentLabel.setText(bundle.getString("label_comment")); // NOI18N
 
-        originalTextLabel.setText("Original Text");
+        originalTextLabel.setText(bundle.getString("label_original_text")); // NOI18N
 
         originalTextArea.setEditable(false);
         originalTextArea.setColumns(20);
         originalTextArea.setRows(5);
         jScrollPane2.setViewportView(originalTextArea);
 
-        convertedTextLabel.setText("Konvertierter Text");
+        convertedTextLabel.setText(bundle.getString("label_converted_text")); // NOI18N
 
         convertedTextArea.setEditable(false);
         convertedTextArea.setColumns(20);

@@ -319,7 +319,8 @@ public class MainJFrame extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(Original_TextArea);
 
-        originalTextLabel.setText("Orginal Text");
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("interfaces"); // NOI18N
+        originalTextLabel.setText(bundle.getString("label_original_text")); // NOI18N
 
         javax.swing.GroupLayout upperPanelLayout = new javax.swing.GroupLayout(upperPanel);
         upperPanel.setLayout(upperPanelLayout);
@@ -351,7 +352,7 @@ public class MainJFrame extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(Converted_TextArea);
 
-        convertedTextLabel.setText("Konvertierter Text");
+        convertedTextLabel.setText(bundle.getString("label_converted_text")); // NOI18N
 
         Skype_RadioButton.setSelected(true);
         Skype_RadioButton.setText("Skype");
@@ -361,7 +362,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        convertButton.setText("Konvertieren");
+        convertButton.setText(bundle.getString("button_convert")); // NOI18N
         convertButton.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 convertButtonMouseMoved(evt);
@@ -388,21 +389,21 @@ public class MainJFrame extends javax.swing.JFrame {
         });
 
         exportCheckBox.setSelected(true);
-        exportCheckBox.setText("Dateiausgabe nach");
+        exportCheckBox.setText(bundle.getString("checkbox_filewrite")); // NOI18N
         exportCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exportCheckBoxActionPerformed(evt);
             }
         });
 
-        allowOverwriteCheckBox.setText("allow Overwrite");
+        allowOverwriteCheckBox.setText(bundle.getString("checkbox_allow_overwrite")); // NOI18N
         allowOverwriteCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 allowOverwriteCheckBoxActionPerformed(evt);
             }
         });
 
-        settingsButton.setText("Einstellungen");
+        settingsButton.setText(bundle.getString("button_settings")); // NOI18N
         settingsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 settingsButtonActionPerformed(evt);
@@ -418,7 +419,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jProgressBar.setStringPainted(true);
 
-        errorButton.setText("Fehler melden");
+        errorButton.setText(bundle.getString("button_report_error")); // NOI18N
         errorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 errorButtonActionPerformed(evt);

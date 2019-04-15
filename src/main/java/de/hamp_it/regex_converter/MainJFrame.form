@@ -163,7 +163,9 @@
             </Container>
             <Component class="javax.swing.JLabel" name="originalTextLabel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Orginal Text"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="interfaces.properties" key="label_original_text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
             </Component>
           </SubComponents>
@@ -272,7 +274,9 @@
             </Container>
             <Component class="javax.swing.JLabel" name="convertedTextLabel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Konvertierter Text"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="interfaces.properties" key="label_converted_text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="Skype_RadioButton">
@@ -286,7 +290,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="convertButton">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Konvertieren"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="interfaces.properties" key="button_convert" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <AccessibilityProperties>
                 <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Convert_Button"/>
@@ -313,7 +319,9 @@
             <Component class="javax.swing.JCheckBox" name="exportCheckBox">
               <Properties>
                 <Property name="selected" type="boolean" value="true"/>
-                <Property name="text" type="java.lang.String" value="Dateiausgabe nach"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="interfaces.properties" key="checkbox_filewrite" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exportCheckBoxActionPerformed"/>
@@ -321,7 +329,9 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="allowOverwriteCheckBox">
               <Properties>
-                <Property name="text" type="java.lang.String" value="allow Overwrite"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="interfaces.properties" key="checkbox_allow_overwrite" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="allowOverwriteCheckBoxActionPerformed"/>
@@ -329,7 +339,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="settingsButton">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Einstellungen"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="interfaces.properties" key="button_settings" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="settingsButtonActionPerformed"/>
@@ -350,7 +362,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="errorButton">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Fehler melden"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="interfaces.properties" key="button_report_error" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="errorButtonActionPerformed"/>

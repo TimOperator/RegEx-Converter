@@ -235,20 +235,21 @@ public final class SettingsJFrame extends javax.swing.JFrame {
         checkForUpdatedButton = new javax.swing.JButton();
         autoUpdateCheckCheckBox = new javax.swing.JCheckBox();
 
-        setTitle("Einstellungen");
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("interfaces"); // NOI18N
+        setTitle(bundle.getString("title_settings")); // NOI18N
         setMinimumSize(new java.awt.Dimension(450, 360));
         setResizable(false);
 
-        timeSettingsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Zeit"));
+        timeSettingsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(bundle.getString("frame_time"))); // NOI18N
 
-        jLabel1.setText("Schriftart");
+        jLabel1.setText(bundle.getString("label_text_font")); // NOI18N
 
-        jLabel2.setText("Schriftgröße");
+        jLabel2.setText(bundle.getString("label_text_size")); // NOI18N
 
-        timeFontBold_CheckBox.setText("Fett");
+        timeFontBold_CheckBox.setText(bundle.getString("label_text_bold")); // NOI18N
 
         timeFontItalic_CheckBox.setSelected(true);
-        timeFontItalic_CheckBox.setText("Kursiv");
+        timeFontItalic_CheckBox.setText(bundle.getString("label_text_italic")); // NOI18N
 
         javax.swing.GroupLayout timeSettingsPanelLayout = new javax.swing.GroupLayout(timeSettingsPanel);
         timeSettingsPanel.setLayout(timeSettingsPanelLayout);
@@ -285,15 +286,15 @@ public final class SettingsJFrame extends javax.swing.JFrame {
                     .addComponent(timeFontBold_CheckBox)))
         );
 
-        userSettingsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Benutzer"));
+        userSettingsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(bundle.getString("frame_user"))); // NOI18N
 
-        jLabel4.setText("Schriftart");
+        jLabel4.setText(bundle.getString("label_text_font")); // NOI18N
 
-        jLabel5.setText("Schriftgröße");
+        jLabel5.setText(bundle.getString("label_text_size")); // NOI18N
 
-        userFontBold_CheckBox.setText("Fett");
+        userFontBold_CheckBox.setText(bundle.getString("label_text_bold")); // NOI18N
 
-        userFontItalic_CheckBox.setText("Kursiv");
+        userFontItalic_CheckBox.setText(bundle.getString("label_text_italic")); // NOI18N
 
         javax.swing.GroupLayout userSettingsPanelLayout = new javax.swing.GroupLayout(userSettingsPanel);
         userSettingsPanel.setLayout(userSettingsPanelLayout);
@@ -306,7 +307,7 @@ public final class SettingsJFrame extends javax.swing.JFrame {
                 .addGroup(userSettingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(userSettingsPanelLayout.createSequentialGroup()
                         .addComponent(userFontFamily_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(userFontSize_Spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -331,15 +332,15 @@ public final class SettingsJFrame extends javax.swing.JFrame {
                     .addComponent(userFontBold_CheckBox)))
         );
 
-        contentSettingsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Inhalt"));
+        contentSettingsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(bundle.getString("frame_content"))); // NOI18N
 
-        jLabel6.setText("Schriftart");
+        jLabel6.setText(bundle.getString("label_text_font")); // NOI18N
 
-        jLabel7.setText("Schriftgröße");
+        jLabel7.setText(bundle.getString("label_text_size")); // NOI18N
 
-        contentFontBold_CheckBox.setText("Fett");
+        contentFontBold_CheckBox.setText(bundle.getString("label_text_bold")); // NOI18N
 
-        contentFontItalic_CheckBox.setText("Kursiv");
+        contentFontItalic_CheckBox.setText(bundle.getString("label_text_italic")); // NOI18N
 
         javax.swing.GroupLayout contentSettingsPanelLayout = new javax.swing.GroupLayout(contentSettingsPanel);
         contentSettingsPanel.setLayout(contentSettingsPanelLayout);
@@ -377,23 +378,23 @@ public final class SettingsJFrame extends javax.swing.JFrame {
                     .addComponent(contentFontBold_CheckBox)))
         );
 
-        saveButton.setText("Speichern");
+        saveButton.setText(bundle.getString("button_save")); // NOI18N
         saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveButtonActionPerformed(evt);
             }
         });
 
-        nameSettingsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Inhalt - Name"));
+        nameSettingsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(bundle.getString("frame_content_name"))); // NOI18N
 
-        jLabel8.setText("Schriftart");
+        jLabel8.setText(bundle.getString("label_text_font")); // NOI18N
 
-        jLabel9.setText("Schriftgröße");
+        jLabel9.setText(bundle.getString("label_text_size")); // NOI18N
 
         nameFontBold_CheckBox.setSelected(true);
-        nameFontBold_CheckBox.setText("Fett");
+        nameFontBold_CheckBox.setText(bundle.getString("label_text_bold")); // NOI18N
 
-        nameFontItalic_CheckBox.setText("Kursiv");
+        nameFontItalic_CheckBox.setText(bundle.getString("label_text_italic")); // NOI18N
 
         javax.swing.GroupLayout nameSettingsPanelLayout = new javax.swing.GroupLayout(nameSettingsPanel);
         nameSettingsPanel.setLayout(nameSettingsPanelLayout);
@@ -431,9 +432,9 @@ public final class SettingsJFrame extends javax.swing.JFrame {
                     .addComponent(nameFontBold_CheckBox)))
         );
 
-        charPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Zeichen - Name"));
+        charPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(bundle.getString("frame_character_name"))); // NOI18N
 
-        nameStartLabel.setText("Startzeichen");
+        nameStartLabel.setText(bundle.getString("label_start_symbol")); // NOI18N
 
         nameStartTextField.setText("@");
         nameStartTextField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -442,7 +443,7 @@ public final class SettingsJFrame extends javax.swing.JFrame {
             }
         });
 
-        nameEndLabel.setText("Endzeichen");
+        nameEndLabel.setText(bundle.getString("label_end_symbol")); // NOI18N
 
         nameEndTextField.setText(":");
         nameEndTextField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -451,7 +452,7 @@ public final class SettingsJFrame extends javax.swing.JFrame {
             }
         });
 
-        nameExampleLabel1.setText("Beispiel:");
+        nameExampleLabel1.setText(bundle.getString("label_example")); // NOI18N
 
         nameExampleLabel2.setText("@Name:");
 
@@ -494,9 +495,9 @@ public final class SettingsJFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        colorSettingsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Zeichen - Farbe"));
+        colorSettingsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(bundle.getString("frame_character_color"))); // NOI18N
 
-        colorStartLabel.setText("Startzeichen");
+        colorStartLabel.setText(bundle.getString("label_start_symbol")); // NOI18N
 
         colorStartTextField.setText("{");
         colorStartTextField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -512,7 +513,7 @@ public final class SettingsJFrame extends javax.swing.JFrame {
             }
         });
 
-        colorEndLabel.setText("Endzeichen");
+        colorEndLabel.setText(bundle.getString("label_end_symbol")); // NOI18N
 
         colorSplitTextField.setText(":");
         colorSplitTextField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -521,13 +522,13 @@ public final class SettingsJFrame extends javax.swing.JFrame {
             }
         });
 
-        colorSplitLabel.setText("Trennzeichen");
+        colorSplitLabel.setText(bundle.getString("label_delimiter")); // NOI18N
 
-        colorExampleLabel1.setText("Beispiel:");
+        colorExampleLabel1.setText(bundle.getString("label_example")); // NOI18N
 
         colorExampleLabel2.setText("{red: Text }");
 
-        showColorsButton.setText("Farbpalette anzeigen");
+        showColorsButton.setText(bundle.getString("button_show_color_palette")); // NOI18N
         showColorsButton.setPreferredSize(new java.awt.Dimension(120, 20));
         showColorsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -557,7 +558,7 @@ public final class SettingsJFrame extends javax.swing.JFrame {
                         .addComponent(colorEndLabel)
                         .addGap(18, 18, 18)
                         .addComponent(colorEndTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(showColorsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 144, Short.MAX_VALUE))
+                    .addComponent(showColorsButton, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
                 .addContainerGap())
         );
         colorSettingsPanelLayout.setVerticalGroup(
@@ -585,7 +586,7 @@ public final class SettingsJFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        checkForUpdatedButton.setText("Auf Updates prüfen");
+        checkForUpdatedButton.setText(bundle.getString("button_check_for_updates")); // NOI18N
         checkForUpdatedButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkForUpdatedButtonActionPerformed(evt);
@@ -593,7 +594,7 @@ public final class SettingsJFrame extends javax.swing.JFrame {
         });
 
         autoUpdateCheckCheckBox.setSelected(true);
-        autoUpdateCheckCheckBox.setText("Beim Starten automatisch auf Updates prüfen");
+        autoUpdateCheckCheckBox.setText(bundle.getString("label_check_for_updates_on_startup")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

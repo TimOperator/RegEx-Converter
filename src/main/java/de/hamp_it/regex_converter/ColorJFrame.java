@@ -61,7 +61,8 @@ public final class ColorJFrame extends javax.swing.JFrame {
         myColorChooser = new javax.swing.JColorChooser();
         newColorTextField = new javax.swing.JTextField();
 
-        setTitle("Farbpalette");
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("interfaces"); // NOI18N
+        setTitle(bundle.getString("title_color_palette")); // NOI18N
         setResizable(false);
 
         colorList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -72,7 +73,7 @@ public final class ColorJFrame extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(colorList);
 
-        deleteColorButton.setText("Löschen");
+        deleteColorButton.setText(bundle.getString("button_delete")); // NOI18N
         deleteColorButton.setEnabled(false);
         deleteColorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,7 +81,7 @@ public final class ColorJFrame extends javax.swing.JFrame {
             }
         });
 
-        addColorButton.setText("Hinzufügen");
+        addColorButton.setText(bundle.getString("button_add")); // NOI18N
         addColorButton.setEnabled(false);
         addColorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,7 +89,7 @@ public final class ColorJFrame extends javax.swing.JFrame {
             }
         });
 
-        editColorButton.setText("Bearbeiten");
+        editColorButton.setText(bundle.getString("button_edit")); // NOI18N
         editColorButton.setEnabled(false);
         editColorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,7 +97,7 @@ public final class ColorJFrame extends javax.swing.JFrame {
             }
         });
 
-        saveColorsButton.setText("Speichern");
+        saveColorsButton.setText(bundle.getString("button_save")); // NOI18N
         saveColorsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveColorsButtonActionPerformed(evt);
@@ -128,18 +129,17 @@ public final class ColorJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(editColorButton)
-                            .addGap(18, 18, 18)
-                            .addComponent(deleteColorButton)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(newColorTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(addColorButton))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(myColorChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 607, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(editColorButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(deleteColorButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(newColorTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(addColorButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(myColorChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 607, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(saveColorsButton)))
