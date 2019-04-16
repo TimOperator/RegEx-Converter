@@ -7,7 +7,9 @@ package de.hamp_it.regex_converter;
 
 import de.hamp_it.EasyuseServerConnector.MainServerConnector;
 import java.awt.Toolkit;
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.ResourceBundle;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -21,6 +23,7 @@ public final class SettingsJFrame extends javax.swing.JFrame {
     private HashMap colorMap;
     private String programTitle;
     ColorJFrame colorJFrame = new ColorJFrame();
+    private static final ResourceBundle STRING_BUNDLE = ResourceBundle.getBundle("messages");
 
     /**
      * Creates new form SettingsJFrame
@@ -36,6 +39,30 @@ public final class SettingsJFrame extends javax.swing.JFrame {
         this.settings = settings;
         this.programTitle = programTitle;
         setValuesToBoard();
+    }
+    
+    /**
+     * Checks for updates and give message to user via JOptionPane
+     */
+    public void checkForUpdates() {
+        int currentVersion = MainServerConnector.getVersionNumber(programTitle);
+        String name = programTitle.split(" ")[0];
+        String message;
+        try {
+            int latestVersion = MainServerConnector.getLatestVersionNo(name, currentVersion);
+            if (currentVersion > latestVersion) {
+                message = STRING_BUNDLE.getString("version_forward");
+            } else if (currentVersion == latestVersion) {
+                message = STRING_BUNDLE.getString("version_up_to_date");
+            } else {
+                message = STRING_BUNDLE.getString("version_outdated");
+            }
+        } catch (IOException ex) {
+            message = STRING_BUNDLE.getString("out_of_service");
+            System.out.println(message);
+            System.out.println(ex.toString());
+        }
+        JOptionPane.showMessageDialog(null, message);
     }
 
     private void toggleSaveButton(boolean value) {
@@ -103,25 +130,25 @@ public final class SettingsJFrame extends javax.swing.JFrame {
         contentFontSize_Spinner.setValue(settings.getContentWF().getFontSize());
         contentFontBold_CheckBox.setSelected(settings.getContentWF().getBold());
         contentFontItalic_CheckBox.setSelected(settings.getContentWF().getItalic());
-        
+
         nameFontFamily_ComboBox.addItem(settings.getNameWF().getFontFamily());
         addMissingItems(nameFontFamily_ComboBox);
         nameFontSize_Spinner.setValue(settings.getNameWF().getFontSize());
         nameFontBold_CheckBox.setSelected(settings.getNameWF().getBold());
         nameFontItalic_CheckBox.setSelected(settings.getNameWF().getItalic());
-        
+
         nameStartTextField.setText(settings.getNameStartChar());
         nameEndTextField.setText(settings.getNameEndChar());
         colorStartTextField.setText(settings.getColorStartChar());
         colorSplitTextField.setText(settings.getColorSplitChar());
         colorEndTextField.setText(settings.getColorEndChar());
-        
+
         setColorExample(settings.getColorStartChar(), settings.getColorSplitChar(), settings.getColorEndChar());
         setNameExample(settings.getNameStartChar(), settings.getNameEndChar());
-        
+
         autoUpdateCheckCheckBox.setSelected(settings.getAutoUpdateCheck());
     }
-    
+
     private void addMissingItems(javax.swing.JComboBox box) {
         // Add fonts to combo box
         String[] list = {"Calibri", "Arial", "Cambria", "Times New Roman"};
@@ -130,7 +157,7 @@ public final class SettingsJFrame extends javax.swing.JFrame {
                 box.addItem(list1);
             }
         }
-        
+
     }
 
     private void saveValuesFromBoard() {
@@ -151,16 +178,16 @@ public final class SettingsJFrame extends javax.swing.JFrame {
         settings.getNameWF().setFontSize((int) this.nameFontSize_Spinner.getValue());
         settings.getNameWF().setBold(this.nameFontBold_CheckBox.isSelected());
         settings.getNameWF().setItalic(this.nameFontItalic_CheckBox.isSelected());
-        
+
         //save index characters
         settings.setNameStartChar(nameStartTextField.getText());
         settings.setNameEndChar(nameEndTextField.getText());
         settings.setColorStartChar(colorStartTextField.getText());
         settings.setColorSplitChar(colorSplitTextField.getText());
         settings.setColorEndChar(colorEndTextField.getText());
-        
+
         settings.setAutoUpdateCheck(autoUpdateCheckCheckBox.isSelected());
-        
+
         // save to file
         settings.saveSettingsFile();
     }
@@ -176,7 +203,6 @@ public final class SettingsJFrame extends javax.swing.JFrame {
     /*public void addColorToMap(String nameKey, String rgbValue) {
         colorMap.put(nameKey, rgbValue);
     }*/
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -676,8 +702,7 @@ public final class SettingsJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_showColorsButtonActionPerformed
 
     private void checkForUpdatedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkForUpdatedButtonActionPerformed
-        String response = MainServerConnector.checkForUpdates(programTitle);
-        JOptionPane.showMessageDialog(null, response);
+        this.checkForUpdates();
     }//GEN-LAST:event_checkForUpdatedButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

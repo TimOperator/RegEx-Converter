@@ -5,7 +5,6 @@
  */
 package de.hamp_it.regex_converter;
 
-import de.hamp_it.EasyuseServerConnector.MainServerConnector;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.HeadlessException;
@@ -21,6 +20,7 @@ import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.ResourceBundle;
 
 /**
  *
@@ -35,10 +35,13 @@ public class MainJFrame extends javax.swing.JFrame {
     protected Settings settings;
     public SettingsJFrame settingsFrame;
     public ReportBugJFrame reportBugFrame;
-    private final String steam_History ="Steam_History";
-    private final String skype_History ="Skype_History";
-    private final String discord_History ="Discord_History";
-    private final String whatsapp_History ="WhatsApp_History";
+    private final String steam_History = "Steam_History";
+    private final String skype_History = "Skype_History";
+    private final String discord_History = "Discord_History";
+    private final String whatsapp_History = "WhatsApp_History";
+    private static final ResourceBundle STRING_BUNDLE = ResourceBundle.getBundle("messages");
+
+    ;
 
     /**
      * Creates new form MainJFrame
@@ -55,12 +58,8 @@ public class MainJFrame extends javax.swing.JFrame {
         setFileName(fileNameTextField.getText());
         originalFileName = fileNameTextField.getText();
         if (settings.getAutoUpdateCheck()) {
-            // TODO check for updates
-            String response = MainServerConnector.checkForUpdates(this.getTitle());
-            System.out.println(response);
-            if (response.startsWith("Die Version ") && response.endsWith("ist nun verfügbar.")) {
-                JOptionPane.showMessageDialog(frame, "Update verfügbar!\r\n" + response);
-            }
+            // Check for updates
+            settingsFrame.checkForUpdates();
         }
     }
 
@@ -110,15 +109,15 @@ public class MainJFrame extends javax.swing.JFrame {
     }
 
     private void convert(String type) {
-        
+
         // Auswahl des Modus
         String tag;
         String skypeTag = "(?:\\[(.+)?\\]\\s(.+?)?:\\s)?(.+)";
         String steamTag = "(\\d\\d:\\d\\d)\\s-\\s(.+?):\\s(.*)";
         String discordTag = "(?:(.+)-(?:.*)\\sum\\s(.+?)\\sUhr)?(.+)?";
         String whatsappTag = "\\[(\\d\\d:\\d\\d)\\,\\s\\d+\\.\\d+.\\d\\d\\d\\d\\]\\s(.+?):\\s(.*)|(.+)";    //Group 4 is line without intro
-        int timeNo=1;
-        int userNo=2;
+        int timeNo = 1;
+        int userNo = 2;
 
         switch (type) {
             case "Skype":
@@ -130,8 +129,8 @@ public class MainJFrame extends javax.swing.JFrame {
             case "Discord":
                 tag = discordTag;
                 // Time and user reversed
-                timeNo=2;
-                userNo=1;
+                timeNo = 2;
+                userNo = 1;
                 break;
             case "WhatsApp":
                 tag = whatsappTag;
@@ -142,8 +141,6 @@ public class MainJFrame extends javax.swing.JFrame {
 
         WordExporter we = new WordExporter(fileNameTextField.getText() + ".docx");
         we.open();
-        
-        
 
         try {
             //Text auslesen
@@ -166,16 +163,14 @@ public class MainJFrame extends javax.swing.JFrame {
                     } catch (IndexOutOfBoundsException e) {
                         //No group 4
                     }
-                    
-                    
+
                     if (match == null) {
                         match = match2;
                     } else {
-                        
-                        match+="\r\n";
+
+                        match += "\r\n";
                     }
-                    
-                    
+
                     if (time != null && user != null) {
                         if (type.equals("Skype")) {
                             int start = time.length() - 8;
@@ -201,14 +196,14 @@ public class MainJFrame extends javax.swing.JFrame {
                         toTextArea = toTextArea + textPart;
                         //JOptionPane.showMessageDialog(frame, textPart);
                         we.addText(textPart, lineEditor.getCurrentWF(), addBreak);
-                    }        
+                    }
                     Converted_TextArea.append(toTextArea);
                 }
                 process++;
                 jProgressBar.setValue(process);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(frame, "Regex conversion error: " + e.toString());
+            JOptionPane.showMessageDialog(frame, STRING_BUNDLE.getString("regex_conversion_error") + ": " + e.toString());
         }
 
         //Save as word (.docx) document
@@ -217,7 +212,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 we.close();
             } catch (Exception e) {
                 jProgressBar.setValue(0);
-                JOptionPane.showMessageDialog(frame, "Word error: " + e.toString());
+                JOptionPane.showMessageDialog(frame, STRING_BUNDLE.getString("word_error") + ": " + e.toString());
             }
         }
         this.markFileName();
@@ -542,7 +537,7 @@ public class MainJFrame extends javax.swing.JFrame {
             Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
             clipboard.setContents(selection, selection);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(frame, "Error: " + e.toString());
+            JOptionPane.showMessageDialog(frame, STRING_BUNDLE.getString("error") + ": " + e.toString());
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
@@ -559,7 +554,7 @@ public class MainJFrame extends javax.swing.JFrame {
             String result = (String) clipboard.getData(DataFlavor.stringFlavor);
             this.Original_TextArea.setText(result);
         } catch (HeadlessException | UnsupportedFlavorException | IOException e) {
-            JOptionPane.showMessageDialog(frame, "Error: " + e.toString());
+            JOptionPane.showMessageDialog(frame, STRING_BUNDLE.getString("error") + ": " + e.toString());
         }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
@@ -570,7 +565,7 @@ public class MainJFrame extends javax.swing.JFrame {
             Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
             clipboard.setContents(selection, selection);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(frame, "Error: " + e.toString());
+            JOptionPane.showMessageDialog(frame, STRING_BUNDLE.getString("error") + ": " + e.toString());
         }
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
@@ -581,7 +576,7 @@ public class MainJFrame extends javax.swing.JFrame {
             String result = (String) clipboard.getData(DataFlavor.stringFlavor);
             this.Converted_TextArea.setText(result);
         } catch (HeadlessException | UnsupportedFlavorException | IOException e) {
-            JOptionPane.showMessageDialog(frame, "Error: " + e.toString());
+            JOptionPane.showMessageDialog(frame, STRING_BUNDLE.getString("error") + ": " + e.toString());
         }
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
@@ -636,7 +631,7 @@ public class MainJFrame extends javax.swing.JFrame {
             fileNameTextField.setText(fileName);
         }
         originalFileName = fileNameTextField.getText();
-        */
+         */
     }//GEN-LAST:event_Steam_RadioButtonActionPerformed
 
     private void Skype_RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Skype_RadioButtonActionPerformed
@@ -651,7 +646,7 @@ public class MainJFrame extends javax.swing.JFrame {
             fileNameTextField.setText(fileName);
         }
         originalFileName = fileNameTextField.getText();
-        */
+         */
     }//GEN-LAST:event_Skype_RadioButtonActionPerformed
 
     private void errorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_errorButtonActionPerformed
@@ -676,7 +671,7 @@ public class MainJFrame extends javax.swing.JFrame {
             fileNameTextField.setText(fileName);
         }
         originalFileName = fileNameTextField.getText();
-        */
+         */
     }//GEN-LAST:event_Discord_RadioButtonActionPerformed
 
     private void WhatsApp_RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WhatsApp_RadioButtonActionPerformed
@@ -703,7 +698,7 @@ public class MainJFrame extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         //</editor-fold>
 
         /* Create and display the form */
