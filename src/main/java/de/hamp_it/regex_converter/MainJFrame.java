@@ -299,7 +299,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jPopupMenu2.add(jMenuItem4);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("RegEx-Converter v5.3.1");
+        setTitle("RegEx-Converter v5.4.0");
         setFocusable(false);
         setMinimumSize(new java.awt.Dimension(925, 400));
 

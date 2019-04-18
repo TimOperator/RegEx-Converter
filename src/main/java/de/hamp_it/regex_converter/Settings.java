@@ -12,6 +12,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.util.ResourceBundle;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 import org.json.JSONException;
@@ -32,7 +33,8 @@ public class Settings {
     private String colorSplitChar;
     private String colorEndChar;
     private Boolean autoUpdateCheck;
-    private final String settingsFileName="settings.json";
+    private final String settingsFileName = "settings.json";
+    private final ResourceBundle MESSAGE_BUNDLE = ResourceBundle.getBundle("messages");
 
     public Settings() {
         loadSettingsFromFile(settingsFileName);
@@ -166,7 +168,7 @@ public class Settings {
             setDefaultFormating();
             saveSettingsFile();
         } catch (JSONException ex) {
-            JOptionPane.showMessageDialog(null, "Einstellungen konnten nicht geladen werden!\r\n" + ex.toString());
+            JOptionPane.showMessageDialog(null, MESSAGE_BUNDLE.getString("could_not_load_settings") + "!\r\n" + ex.toString());
             setDefaultFormating();
             saveSettingsFile();
         }
@@ -228,7 +230,7 @@ public class Settings {
             writer.write(object.toString());
             writer.close();
         } catch (JSONException | IOException e) {
-            JOptionPane.showMessageDialog(null, "Einstellungen konnten nicht gespeichert werden!\r\n" + e.toString());
+            JOptionPane.showMessageDialog(null, MESSAGE_BUNDLE.getString("could_not_save_settings") + "!\r\n" + e.toString());
         }
     }
 }

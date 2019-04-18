@@ -16,6 +16,7 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.Scanner;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -29,6 +30,8 @@ public final class ColorJFrame extends javax.swing.JFrame {
     
     private final List colorMap;
     private final DefaultListModel<String> lm;
+    private final ResourceBundle MESSAGE_BUNDLE = ResourceBundle.getBundle("messages");
+    private final String colorFileName = "colors.properties";
     /**
      * Creates new form ColorJFrame
      */
@@ -37,7 +40,7 @@ public final class ColorJFrame extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         setIcon();
         colorMap = new ArrayList<>();
-        loadColorMapFromFile("colors.properties");
+        loadColorMapFromFile(colorFileName);
         lm = new DefaultListModel<>();
         colorList.setModel(lm);
         this.updateColorList();
@@ -214,7 +217,7 @@ public final class ColorJFrame extends javax.swing.JFrame {
         for (int i = 0; i < colorMap.size(); i++) {
             MyColor myColor = (MyColor) colorMap.get(i);
             if (myColor.getColorName().equalsIgnoreCase(colorName)) {
-                JOptionPane.showMessageDialog(null, "Color " + colorName + " already exists.");
+                JOptionPane.showMessageDialog(null, MESSAGE_BUNDLE.getString("color_already_exists") + "\r\n" + colorName );
                 return;
             }
         }
@@ -325,7 +328,7 @@ public final class ColorJFrame extends javax.swing.JFrame {
                             throw new NumberFormatException();
                         }
                     } catch (NumberFormatException ex) {
-                        JOptionPane.showMessageDialog(null, "Ihre Datei mit den Farbeinstellungen ist veraltet und wird ersetzt.");
+                        JOptionPane.showMessageDialog(null, MESSAGE_BUNDLE.getString("color_settings_file_outdated"));
                         throw new FileNotFoundException();
                     }
                     colorMap.add(new MyColor(rgbKey, nameValue));
@@ -341,20 +344,20 @@ public final class ColorJFrame extends javax.swing.JFrame {
             colorMap.add(new MyColor("magenta", "-65281"));
             colorMap.add(new MyColor("yellow", "-256"));
             colorMap.add(new MyColor("white", "-1"));
-            JOptionPane.showMessageDialog(null, "Neue Datei mit Farbeinstellungen wird erstellt!\r\nErstelle: colors.properties");
+            JOptionPane.showMessageDialog(null, MESSAGE_BUNDLE.getString("create_color_settings_file") + "\r\n" + colorFileName);
             createColorFile();
             //Logger.getLogger(SettingsJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
     private void createColorFile() {
-        try (Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("colors.properties"), "utf-8"))) {
+        try (Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(colorFileName), "utf-8"))) {
             writer.write("#Add further colors with name and rgb-value like below\r\n");
             for (int i=0; i<colorMap.size(); i++) {
                 writer.write(colorMap.get(i).toString() + "\r\n");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Could not save color.properties: " + e.toString());
+            JOptionPane.showMessageDialog(null, MESSAGE_BUNDLE.getString("could_not_save_color_properties") + e.toString());
         }
     }
     
@@ -379,10 +382,6 @@ public final class ColorJFrame extends javax.swing.JFrame {
     
     private void setIcon() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getClassLoader().getResource("convicon.png")));
-    }
-
-    private int Integer(float f) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     private class MyColor {

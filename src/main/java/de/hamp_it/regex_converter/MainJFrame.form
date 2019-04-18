@@ -73,7 +73,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="title" type="java.lang.String" value="RegEx-Converter v5.3.1"/>
+    <Property name="title" type="java.lang.String" value="RegEx-Converter v5.4.0"/>
     <Property name="focusable" type="boolean" value="false"/>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[925, 400]"/>

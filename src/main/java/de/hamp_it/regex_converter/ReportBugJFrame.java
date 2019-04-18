@@ -7,6 +7,7 @@ package de.hamp_it.regex_converter;
 
 import de.hamp_it.EasyuseServerConnector.MainServerConnector;
 import java.awt.Toolkit;
+import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +19,7 @@ public class ReportBugJFrame extends javax.swing.JFrame {
     private String originalText;
     private String convertedText;
     private String programTitle;
+    private final ResourceBundle MESSAGE_BUNDLE = ResourceBundle.getBundle("messages");
     /**
      * Creates new form reportBugJFrame
      * @param programTitle Title
@@ -29,7 +31,7 @@ public class ReportBugJFrame extends javax.swing.JFrame {
     }
 
     private ReportBugJFrame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException(MESSAGE_BUNDLE.getString("not_yet_supported")); //To change body of generated methods, choose Tools | Templates.
     }
     
     private void setIcon() {

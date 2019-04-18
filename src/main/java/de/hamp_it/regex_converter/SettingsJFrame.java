@@ -79,7 +79,7 @@ public final class SettingsJFrame extends javax.swing.JFrame {
         String nameEnd = nameEndTextField.getText();
         if (nameStart.contains(" ") || nameEnd.contains(" ")) {
             toggleSaveButton(false);
-            JOptionPane.showMessageDialog(null, "Spaces are not allowed in name");
+            JOptionPane.showMessageDialog(null, STRING_BUNDLE.getString("space_not_allowed_in_name"));
             return;
         }
         if (nameStart.length() == 0 || nameEnd.length() == 0) {
@@ -96,12 +96,12 @@ public final class SettingsJFrame extends javax.swing.JFrame {
         String colorEnd = colorEndTextField.getText();
         if (colorStart.contains(" ") || colorSplit.contains(" ") || colorEnd.contains(" ")) {
             toggleSaveButton(false);
-            JOptionPane.showMessageDialog(null, "Spaces are not allowed in colors");
+            JOptionPane.showMessageDialog(null, STRING_BUNDLE.getString("space_not_allowed_in_color"));
             return;
         }
         if (colorStart.equals(colorEnd)) {
             toggleSaveButton(false);
-            JOptionPane.showMessageDialog(null, "Color start character matches color end character, which is not allowed");
+            JOptionPane.showMessageDialog(null, STRING_BUNDLE.getString("start_end_character_overlap"));
             return;
         }
         if (colorStart.length() == 0 || colorSplit.length() == 0 || colorEnd.length() == 0) {
