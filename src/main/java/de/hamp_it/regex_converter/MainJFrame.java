@@ -621,32 +621,10 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void Steam_RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Steam_RadioButtonActionPerformed
         filenameReplacement(steam_History);
-        /*if (fileNameTextField.getText().startsWith(skype_History)) {
-            String fileName = fileNameTextField.getText();
-            fileName = fileName.replace(skype_History, steam_History);
-            fileNameTextField.setText(fileName); //Replace Skype_History with Steam_History
-        } else if (fileNameTextField.getText().startsWith(discord_History)) {
-            String fileName = fileNameTextField.getText();
-            fileName = fileName.replace(discord_History, steam_History);
-            fileNameTextField.setText(fileName);
-        }
-        originalFileName = fileNameTextField.getText();
-         */
     }//GEN-LAST:event_Steam_RadioButtonActionPerformed
 
     private void Skype_RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Skype_RadioButtonActionPerformed
         filenameReplacement(skype_History);
-        /*if (fileNameTextField.getText().startsWith(steam_History)) {
-            String fileName = fileNameTextField.getText();
-            fileName = fileName.replace(steam_History, skype_History);
-            fileNameTextField.setText(fileName);
-        } else if (fileNameTextField.getText().startsWith(discord_History)) {
-            String fileName = fileNameTextField.getText();
-            fileName = fileName.replace(discord_History, skype_History);
-            fileNameTextField.setText(fileName);
-        }
-        originalFileName = fileNameTextField.getText();
-         */
     }//GEN-LAST:event_Skype_RadioButtonActionPerformed
 
     private void errorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_errorButtonActionPerformed
@@ -661,17 +639,6 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void Discord_RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Discord_RadioButtonActionPerformed
         filenameReplacement(discord_History);
-        /*if (fileNameTextField.getText().startsWith(skype_History)) {
-            String fileName = fileNameTextField.getText();
-            fileName = fileName.replace(skype_History, discord_History);
-            fileNameTextField.setText(fileName);
-        } else if (fileNameTextField.getText().startsWith(steam_History)) {
-            String fileName = fileNameTextField.getText();
-            fileName = fileName.replace(steam_History, discord_History);
-            fileNameTextField.setText(fileName);
-        }
-        originalFileName = fileNameTextField.getText();
-         */
     }//GEN-LAST:event_Discord_RadioButtonActionPerformed
 
     private void WhatsApp_RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WhatsApp_RadioButtonActionPerformed
