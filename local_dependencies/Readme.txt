@@ -1,0 +1,2 @@
+Um den EasyuseServerConnector zum lokalen maven repository hinzu zu fügen, folgenden Befehl ausführen
+mvn install:install-file -Dfile=EasyuseServerConnector-3.0.jar -DgroupId=de.hamp_it.EasyuseServerConnector -DartifactId=EasyuseServerConnector -Dversion=3.0 -Dpackaging=jar

@@ -1,7 +1,3 @@
-
-# Created by https://www.gitignore.io/api/netbeans
-# Edit at https://www.gitignore.io/?templates=netbeans
-
 ### NetBeans ###
 **/nbproject/private/
 **/nbproject/Makefile-*.mk
@@ -28,5 +24,3 @@ test/
 project_data/
 colors.properties
 settings.json
-
-# End of https://www.gitignore.io/api/netbeans
